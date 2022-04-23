@@ -8,18 +8,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/login.css">
-    <title>Register</title>
+    <title>Log in</title>
 </head>
 
 <body>
     <div class="form_div">
+        <div style="position: static;" class="alert alert-danger w-100 d-flex justify-content-center" role="alert">
+            Login Inválido!
+          </div>
+        <form style="padding: 5%;" method="POST" action="/api/user/login">
 
-        <form style="padding: 10%;" method="POST" action="/api/user/login">
-
-            <label class="mt-2 form-label bg-light">Email</label>
+            <label class="form-label bg-light">Email</label>
             <input type="email" name="email" class="form-control" placeholder="name@example.com">
 
-            <label class="mt-2 form-label bg-light">Senha</label>
+            <label class="form-label bg-light">Senha</label>
             <input type="password" name="password" class="form-control" placeholder="Senha">
 
             
@@ -33,6 +35,7 @@
         </form>
 
     </div>
+    <!-- <script src="../routes/auth.js"></script> -->
 </body>
 
 </html>

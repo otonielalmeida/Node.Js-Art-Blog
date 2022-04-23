@@ -1,36 +1,25 @@
 const express = require('express');
-
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const router = require('express').Router();
-
+const ejs = require('ejs');
 const User = require('../model/User');
 const { registerValidation, loginValidation } = require('../validation');
-const { redirect } = require('express/lib/response');
+
 
 router.use(express.static('view'));
 
 router.get('/register', (req, res) => {
-    res.sendFile('register.html', {
-        root: './view/'
-    })
-    /* res.send(`
-    <form action='/api/user/register' method='POST'>
-    Name: <input type='text' name="name">
-    Email: <input type="text" name="email">
-    Password: <input type="text" name="password">
-    <button>Send</button>
-    </form>
-    `) */
+    res.render('register.ejs');
 });
 
 router.post('/register', async (req, res) => {
 
     const { error } = registerValidation(req.body);
-    if (error) return res.status(400).send(error.details[0].message);
+    if (error) return res.render('registerError.ejs');
 
     const emailExist = await User.findOne({ email: req.body.email });
-    if (emailExist) return res.status(400).send('Email already exists');
+    if (emailExist) return res.render('registerError.ejs');
 
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(req.body.password, salt);
@@ -53,26 +42,24 @@ router.post('/register', async (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-    res.sendFile('login.html', {
-        root: './view'
-    })
+    res.render('login.ejs')
 });
 
 router.post('/login', async (req, res) => {
     const { error } = loginValidation(req.body);
-    if (error) return res.status(400).send(error.details[0].message);
+    if (error) return res.render('loginError.ejs');
 
     const user = await User.findOne({ email: req.body.email });
-    if (!user) return res.status(400).send('Email or password is wrong');
+    if (!user) return res.render('loginError.ejs');
 
     const validPass = await bcrypt.compare(req.body.password, user.password);
-    if (!validPass) return res.status(400).send('Invalid password');
+    if (!validPass) return res.render('loginError.ejs');
 
     const token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET, {
         expiresIn: 3600
     });
 
-    res.cookie('jwt', token) 
+    res.cookie('jwt', token)
     res.redirect('/api/posts');
 });
 

@@ -17,6 +17,16 @@ body{
     height: 55%;
     width: 45%;
     border: 1px solid;
-  padding: 10px;
-  box-shadow: 20px 40px 4px;
+    padding: 10px;
+    transition: all .5s ease;
+
+}
+.form_div:hover{
+    background-color: white;
+    height: 55%;
+    width: 45%;
+    border: 1px solid;
+    padding: 10px;
+    box-shadow: 20px 40px 4px;
+    transform: scale(1.07);
 }
