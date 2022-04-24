@@ -2,11 +2,10 @@ const express = require('express');
 const router = require('express').Router();
 router.use(express.static('view'));
 const verify = require ('./verifyToken');
-const path = require('path');
+const multer = require('multer');
+
 //model
 const Post = require('./../model/Post');
-
-const multer = require('multer');
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb){
@@ -19,13 +18,14 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-router.get('/', verify, (req, res) => {
-    res.render('newPost.ejs')
-})
+router.get('/', verify, async (req, res) => {
+    res.render('newPost.ejs');
+});
 
 router.post('/', upload.single('image'), async (req, res) => {
     
-    console.log(req.body)
+    
+    
     const post = new Post({
         author: req.body.author,
         title: req.body.title,

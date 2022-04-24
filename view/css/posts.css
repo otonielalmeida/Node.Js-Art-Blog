@@ -81,6 +81,10 @@ nav ul a:hover{
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     text-decoration: none;
 }
+#pagination_btn{
+    margin-top: 5%;
+}
+
 footer{
     margin-top: 10%;
 }

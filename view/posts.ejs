@@ -8,12 +8,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/posts.css">
-    <title>Posts</title>
+    <title>Articles</title>
 </head>
 
 <body>
     <nav class="navbar fixed-top">
-        <ul><a href="/api/posts">Posts</a></ul>
+        <ul><a href="/api/posts">Articles</a></ul>
         <div class="nav_bar_right">
             <ul><a href="/api/newPost">Post A New Piece</a></ul>
             <form method="POST">
@@ -22,25 +22,26 @@
         </div>
 
     </nav>
+    <% for (var a = 0; a < loadPosts.length; a ++) { %>
     <div class="form_div">
         <div class="post_header">
-            Diogenes, the homeless greek philosopher
+           <%= loadPosts[a].title %>
         </div>
-        <img src="./img/diogenes.jpg">
+        <img src="./img/<%= loadPosts[a].image %>">
+        <h6 class="text-secondary mt-3 font-italic"><%= loadPosts[a].author %></h6>
     </div>
+    <% } %>
 
-    <div class="form_div">
-        <div class="post_header">
-            The Last Supper
-        </div>
-        <img src="./img/las_supper.jpg">
-    </div>
-
-    <div class="form_div">
-        <div class="post_header">
-            The Great Wave Off Kanagawa
-        </div>
-        <img src="./img/great_wave.jpg">
+    <div id="pagination_btn">
+        <ul class="pagination">
+            <% for (var a = 1; a <= pages; a++) { %>
+            <li class="page-item">
+                <a class="page-link" href="?page=<%= a; %>">
+                    <%= a; %>
+                </a>
+            </li>
+            <% } %>
+        </ul>
     </div>
 
     <footer class="pb-3 mb-4">
