@@ -21,7 +21,7 @@
     </nav>
     <div class="form_div">
 
-        <form style="padding: 10%;" method="POST" action="/api/user/login">
+        <form style="padding: 10%;" method="POST" enctype="multipart/form-data">
 
             <label class="mt-2 form-label bg-light">Title</label>
             <input type="text" name="title" class="form-control" placeholder="The Last Supper">
@@ -29,13 +29,19 @@
             <label class="mt-2 form-label bg-light">Author</label>
             <input type="text" name="author" class="form-control" placeholder="Leonardo Da Vinci">
 
+            <label class="mt-2 form-label bg-light">Date</label>
+            <input type="text" name="date" class="form-control" placeholder="1948">
+
             <label class="mt-2 form-label bg-light">Imagem</label>
-            <input type="file" name="image" class="form-control" placeholder="Escolher Arquivo">
+            <input type="file" accept=".jpg" name="image" class="form-control" placeholder="Escolher Arquivo">
+
+            <label class="mt-2 form-label bg-light">Descrição</label>
+            <input id="description" type="text" name="description" class="form-control" placeholder="A Última Ceia (em italiano: L'Ultima Cena e também Il Cenacolo) é um afresco de Leonardo da Vinci para a igreja de Santa Maria delle Grazie em Milão, Itália">
 
             <div class="input-group mt-3 w-100 d-flex justify-content-center">
                 <button type="submit" class="w-75 mt-2 btn btn-outline-dark">Enviar</button>
                 <div class="input-group-append w-25">
-                  <a class="btn btn-outline-warning mt-2 w-100" href="/api/user/register">Registrar-se</a>
+                  <a class="btn btn-outline-warning mt-2 w-100" href="/api/posts">Cancelar</a>
                 </div>
             </div>
         </form>

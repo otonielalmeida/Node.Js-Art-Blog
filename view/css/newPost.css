@@ -9,18 +9,18 @@ body{
     display: flex;
     align-items: center;
     flex-direction: column;
-    height: 300%;
+    height: 100%;
     width: 100%;
 }
 
 .form_div{
     background-color: white;
-    height: 22%;
+    height: 75%;
     width: 45%;
     border: 1px solid;
     padding: 10px;
     transition: all .5s ease;
-    margin-top: 10%;
+    margin-top: 8%;
     
 }
 .form_div img{
@@ -70,6 +70,10 @@ nav ul a:hover{
 }
 .nav_bar_right{
     margin-right: 5%;
+}
+#description{
+    height: 4em;
+    color: rgb(0, 0, 0);
 }
 footer{
     margin-top: 10%;

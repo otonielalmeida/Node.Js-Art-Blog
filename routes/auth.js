@@ -36,6 +36,7 @@ router.post('/register', async (req, res) => {
         const token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET, {
             expiresIn: 3600
         });
+        res.cookie('jwt', token);
     } catch (err) {
         res.status(400).send(err);
     }
@@ -59,7 +60,7 @@ router.post('/login', async (req, res) => {
         expiresIn: 3600
     });
 
-    res.cookie('jwt', token)
+    res.cookie('jwt', token);
     res.redirect('/api/posts');
 });
 
