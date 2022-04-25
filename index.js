@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 const authRoute = require('./routes/auth');
 const postRoute = require('./routes/posts');
 const newPostRoute = require('./routes/newPost');
+const managePostsRoute = require('./routes/managePosts');
 
 dotenv.config();
 
@@ -19,9 +20,11 @@ app.use(cookieParser());
 app.use(express.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
 app.set('views', './view');
+
 //route middlewares
-app.use('/api/user', authRoute);
-app.use('/api/posts', postRoute);
-app.use('/api/newPost', newPostRoute);
+app.use('/user', authRoute);
+app.use('/posts', postRoute);
+app.use('/newPost', newPostRoute);
+app.use('/managePosts', managePostsRoute)
 
 app.listen(3000, () => console.log('Server running on http://localhost:3000/'));

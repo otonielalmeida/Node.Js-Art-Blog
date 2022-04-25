@@ -7,13 +7,13 @@ app.use(cookieParser())
 
 module.exports = function (req, res, next) {
     const token = req.cookies.jwt;
-    if (!token) return res.redirect('/api/user/login');
+    if (!token) return res.redirect('/user/login');
 
     try {
         const verified = jwt.verify(token, process.env.TOKEN_SECRET);
         req.user = verified;
         next();
     } catch (err) {
-        res.redirect('/api/user/login');
+        res.redirect('/user/login');
     }
 }

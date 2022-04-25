@@ -61,7 +61,7 @@ router.post('/login', async (req, res) => {
     });
 
     res.cookie('jwt', token);
-    res.redirect('/api/posts');
+    res.redirect('/posts');
 });
 
 module.exports = router;

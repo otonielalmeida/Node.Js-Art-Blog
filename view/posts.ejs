@@ -13,47 +13,52 @@
 
 <body>
     <nav class="navbar fixed-top">
-        <ul><a href="/api/posts">Articles</a></ul>
+        <ul><a href="/posts">Articles</a></ul>
         <div class="nav_bar_right">
-            <ul><a href="/api/newPost">Post A New Piece</a></ul>
+            <ul>
+                <a href="/newPost">Post A New Piece</a>
+                
+            </ul>
             <form method="POST">
                 <button name="logout" class="btn btn-outline-light my-4 my-sm-0" type="submit">Log out</button>
             </form>
         </div>
 
     </nav>
-    <% for (var a = 0; a < loadPosts.length; a ++) { %>
-    <div class="form_div">
-        <div class="post_header">
-           <%= loadPosts[a].title %>
+    <% for (var a=0; a < loadPosts.length; a ++) { %>
+        <div class="form_div">
+            <div class="post_header">
+                <%= loadPosts[a].title %>
+            </div>
+            <img src="./img/<%= loadPosts[a].image %>">
+            <h6 class="text-secondary mt-3 font-italic">
+                <%= loadPosts[a].author %>
+            </h6>
         </div>
-        <img src="./img/<%= loadPosts[a].image %>">
-        <h6 class="text-secondary mt-3 font-italic"><%= loadPosts[a].author %></h6>
-    </div>
-    <% } %>
+        <% } %>
 
-    <div id="pagination_btn">
-        <ul class="pagination">
-            <% for (var a = 1; a <= pages; a++) { %>
-            <li class="page-item">
-                <a class="page-link" href="?page=<%= a; %>">
-                    <%= a; %>
-                </a>
-            </li>
-            <% } %>
-        </ul>
-    </div>
+            <div id="pagination_btn">
+                <ul class="pagination">
+                    <% for (var a=1; a <=pages; a++) { %>
+                        <li class="page-item">
+                            <a class="page-link" href="?page=<%= a; %>">
+                                <%= a; %>
+                            </a>
+                        </li>
+                        <% } %>
+                </ul>
+            </div>
 
-    <footer class="pb-3 mb-4">
-        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
-        </ul>
-        <p class="text-center text-muted">© 2022 Company, Inc</p>
-    </footer>
+            <footer class="pb-3 mb-4">
+                <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+                </ul>
+                <p class="text-center text-muted">© 2022 Company, Inc</p>
+            </footer>
 </body>
 
 </html>

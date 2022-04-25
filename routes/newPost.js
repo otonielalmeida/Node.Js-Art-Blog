@@ -24,8 +24,6 @@ router.get('/', verify, async (req, res) => {
 
 router.post('/', upload.single('image'), async (req, res) => {
     
-    
-    
     const post = new Post({
         author: req.body.author,
         title: req.body.title,
@@ -36,7 +34,7 @@ router.post('/', upload.single('image'), async (req, res) => {
     });
     try {
         const Savedpost = await post.save();
-        res.redirect('/api/posts')
+        res.redirect('/posts')
     } catch (error) {
         console.log(error);
     }

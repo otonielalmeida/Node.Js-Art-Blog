@@ -54,7 +54,7 @@ nav{
     width: 100%;
     background-color: rgb(73, 73, 73);
     color: white;
-    
+    display: flex;
 }
 nav ul a{
     font-weight: 700;
@@ -69,7 +69,17 @@ nav ul a:hover{
     color: rgb(255, 255, 255);
 }
 .nav_bar_right{
-    margin-right: 5%;
+    align-items: flex-end;
+    display: flex;
+    flex-direction: row;
+    color: rgb(202, 202, 184);
+    margin-right: 12%;
+}
+.nav_bar_right ul a{
+    margin-left: -10%;
+    width: 5%;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-decoration: none;
 }
 #description{
     height: 4em;
