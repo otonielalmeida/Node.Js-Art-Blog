@@ -39,6 +39,7 @@
                         <th>Título</th>
                         <th>Autor</th>
                         <th>Descrição</th>
+                        <th>ID</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -47,6 +48,7 @@
                         <td><%= loadPosts[i].title %></td>
                         <td><%= loadPosts[i].author %></td>
                         <td><%= loadPosts[i].description %></td>
+                        <td><%= loadPosts[i].id %></td>
                         <td>
                             <button class="btn btn-danger" value="Delete"><a href="/posts/delete/<%= loadPosts[i]._id%>">Delete</a></button>
                         </td>
@@ -62,14 +64,14 @@
 <script src="./DataTables/jQuery-3.6.0/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="DataTables/datatables.min.js"></script>
 <script>
-    setInterval(function () {
+    
         /* $.fn.dataTable.ext.errMode = 'none'; */
         $(document).ready( function () {
         $('#content_Table').DataTable( 
             /* { "width": "100%" } */
         )
         });
-    }, 1)
+    
 </script>
 
 </html>

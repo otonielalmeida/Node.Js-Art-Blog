@@ -27,7 +27,7 @@ router.get('/', verify,  async (req, res) => {
 router.post('/', (req, res) => {
     res.clearCookie("jwt");
     res.redirect('/user/login');
-})
+});
 
 router.get('/delete/:id', verify, async (req, res) => {
     console.log(req.body)
@@ -36,6 +36,13 @@ router.get('/delete/:id', verify, async (req, res) => {
     /* fs.unlink('../view/img' + Post.find(ObjectId(_id))) */
     }
 ); 
+
+router.get('/individualPage/:id', verify, async (req, res) => {
+    individualPost = await Post.findById({_id: req.params.id});
+    res.render('individualPage.ejs', {
+        "individualPost": individualPost
+    })
+});
 
 
 module.exports = router;

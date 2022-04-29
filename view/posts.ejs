@@ -17,7 +17,7 @@
         <div class="nav_bar_right">
             <ul>
                 <a href="/newPost">Post A New Piece</a>
-                
+
             </ul>
             <form method="POST">
                 <button name="logout" class="btn btn-outline-light my-4 my-sm-0" type="submit">Log out</button>
@@ -27,13 +27,15 @@
     </nav>
     <% for (var a=0; a < loadPosts.length; a ++) { %>
         <div class="form_div">
-            <div class="post_header">
-                <%= loadPosts[a].title %>
-            </div>
-            <img src="./img/<%= loadPosts[a].image %>">
-            <h6 class="text-secondary mt-3 font-italic">
-                <%= loadPosts[a].author %>
-            </h6>
+            <a style="text-decoration: none; color:black" href="./individualPage/<%= loadPosts[a].id %>">
+                <div class="post_header">
+                    <%= loadPosts[a].title %>
+                </div>
+                <img src="./img/<%= loadPosts[a].image %>">
+                <h6 class="text-secondary mt-3" style="font-style: italic;">
+                    <%= loadPosts[a].author %>
+                </h6>
+            </a>
         </div>
         <% } %>
 

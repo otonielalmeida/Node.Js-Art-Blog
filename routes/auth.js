@@ -32,7 +32,7 @@ router.post('/register', async (req, res) => {
 
     try {
         const savedUser = await user.save();
-        res.redirect('/api/posts');
+        res.redirect('/posts');
         const token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET, {
             expiresIn: 3600
         });
